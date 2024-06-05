@@ -6,80 +6,65 @@
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
   <title>Frontend Mentor | Contact form</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="(https://fonts.google.com/specimen/Karla)">
 </head>
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
     .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
+    .attribution a { color: hsl(228, 45%, 44%);}
   </style>
 </head>
 <body class="bg-green-200 m-0 p-0">
-  <div class="flex justify-between items-center w-[50%] m-auto bg-white mt-20 rounded-t-lg px-6 pt-5">
-    <h1 class="font-bold text-xl">Contact Us</h1>
-  </div>
-    
-  <div class="flex justify-between items-center w-[50%] m-auto bg-white px-6 pt-4">
-    <div class="flex flex-col">
-      <form action="">
-         <label for="Name">First Name <span class="text-green-700 ">*</span></label>
-         <input type="Name" class=" border border-black rounded-[5px] mt-1 w-full py-1 hover hover:shadow-md hover:border-green-700 cursor-pointer">
-       </form>
-    </div>
-       
-    <div class="flex flex-col">
-      <form action="">
-         <label for="Name">First Name <span class="text-green-700 ">*</span></label>
-         <input type="Name" class=" border border-black rounded-[5px] mt-1 w-full py-1 hover hover:shadow-md hover:border-green-700 cursor-pointer">
-       </form>
-    </div>
-       
-  </div>
-
-  <div  class="flex justify-between items-center w-[50%] m-auto bg-white px-6 pt-8">
-    <div class="flex w-full">
-      <form class="w-full" action="">
-         <label for="email">Email Address <span class="text-green-700 ">*</span></label>
-         <input type="Name" class=" border border-black rounded-[5px] mt-1 w-full py-1 hover hover:shadow-lg hover:border-green-700 cursor-pointer">
-       </form>
-    </div>
-       
-  </div>
-
-  <div class="flex justify-between items-center w-[50%] m-auto bg-white  px-6 pt-8">
-    <h1 class="">Query Type <span class="text-green-700 ">*</span></h1>
-  </div>
-  <div class="flex justify-between items-center w-[50%] m-auto gap-9 bg-white px-6">
-    <div class="border border-black rounded-[5px] hover hover:shadow-lg hover:border-green-700 py-1 w-1/2 pl-6 mt-2">
-      <input type="radio" class="cursor-pointer">
-     <label for="Name"> General Enquiry</label>
-   </div>
-       
-    <div class=" border border-black rounded-[5px] hover hover:shadow-lg hover:border-green-700 py-1 w-1/2 pl-6 mt-2 ml-4">
-         <input type="radio" class="cursor-pointer">
-        <label for="Name">Support Request</label>
-    </div>
-       
-  </div>
-  <div  class="flex justify-between items-center w-[50%] m-auto bg-white px-6 pt-8">
-    <div class=" w-full">
-      <label for="floatingTextarea2">Message</label>
-      <textarea class="form-control w-full border border-black mt-2 rounded-[5px] hover:shadow-lg hover:border-green-700" placeholder="" id="floatingTextarea2" style="height: 100px"></textarea>
-   </div>
-  </div>
-  <div  class="flex items-center w-[50%] m-auto bg-white pt-10 p-6 gap-3">
-      <input type="checkbox" class="cursor-pointer">
-      <label for="floatingTextarea2">I concent to be contacted by the team <span class="text-green-700 ">*</span></label>
-  </div>
-<div class="flex items-center w-[50%] m-auto bg-white pt-10 p-6 rounded-lg">
-  <button class="bg-green-800 text-white w-full py-2 rounded-[5px]">Submit</button>
-</div>
   
-       
+    <form name="contact"
+    onsubmit="return validateForm(event)"
+    class="bg-white justify-between items-center w-1/2 m-auto mt-16 rounded-md px-5" action="">
+        <h1 class=" pt-5 pb-4 font-bold text-xl">Contact Us</h1>
+        <div class="flex justify-center items-center gap-3">
+            <div class="w-1/2">
+                <label for="name">First Name <span class="text-green-700">*</span></label><br>
+                <input class=" border-[1.4px] py-1 mt-1 w-full border-black pl-1 rounded-md hover hover:border-green-600" type="text" id="fname" name="fname"><br><br>
+                <p class="nreq text-red">This field is required</p>
+            </div>
+            <div class="w-1/2">
+                <label for="name">Last Name <span class="text-green-700">*</span></label><br>
+                <input class=" border-[1.4px] py-1 mt-1 w-full border-black pl-1 rounded-md hover hover:border-green-600" type="text" id="lname" name="lname"><br><br>
+            </div>
+        </div>
+        <div class=" mb-5">
+           <label for="name">Email Address<span class="text-green-700">*</span></label><br>
+           <input class=" border-[1.4px] mt-1 py-1 w-full border-black pl-1 rounded-md hover hover:border-green-600" type="text" id="fname" name="fname"><br>
+    </div>
+        <p >Querey Type <span class="text-green-700">*</span></p>
+        <div class="flex justify-center items-center gap-3 mt-1 mb-5">
+            <div class="w-1/2 cursor-pointer border-[1.4px] border-black pl-8 py-1 rounded-md hover hover:border-green-600">
+               <input class="cursor-pointer" type="radio" id="Qtype1" name="Qtype">
+               <label class="pl-1 cursor-pointer" for="Qtype1">General Enquiry <span class="text-green-700">*</span></label><br>
+            </div>
+            <div class="w-1/2 border-[1.4px] cursor-pointer border-black pl-8 py-1 rounded-md hover hover:border-green-600">
+               <input class="cursor-pointer" type="radio" id="Qtype2" name="Qtype">
+               <label class="pl-1 cursor-pointer" for="Qtype2">Support Request <span class="text-green-700">*</span></label><br>
+            </div>
+        </div>
+        <div class="mt-3">
+           <label for="Message">Message  <span class="text-green-700">*</span></label>
+           <textarea class="w-full rounded-md mt-1 border-[1.4px] border-black hover hover:border-green-700 pl-1 pt-1" name="message" id="message-box"></textarea>
+        </div>
 
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
+        <div class="mt-4">
+            <input type="checkbox" id="check-1" name="box1">
+            <label class="pl-2" for="check-1">I concentto being contacted by the team</label>
+        </div>
+         
+        <input class="bg-green-700 hover hover:bg-green-900 rounded-md px-2 py-1 w-full text-white font-bold mt-5 mb-6" type="button" id="btn" name="button" value="Submit">
+    
+    </form>
+
+
+    <div class="attribution mb-5 mt-5">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
+        Coded by <a href="#">Wisdom Michaels</a>.
+      </div>
 </body>
 </html>
