@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <title>Frontend Mentor | Contact form</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap");
+
+      * {
+        font-family: "Karla", sans-serif;
+      }
+    </style>
+  </head>
+
+  <body class="bg-[hsl(148,38%,91%)] flex justify-center items-center py-16">
+    <div
+      class="w-1/2 bg-white text-black my-[2%] rounded-2xl p-10 flex flex-col gap-6"
+    >
+      <h1 class="font-bold text-[2rem]">Contact Us</h1>
+      <form
+        name="contact"
+        onsubmit="return validateForm(event)"
+        class="flex flex-col gap-5 flex-wrap w-full"
+      >
+        <div class="flex gap-6">
+          <div class="w-full">
+            <label for="fname">First Name:</label><br />
+            <input
+              type="text"
+              id="fname"
+              class="w-full border rounded-lg p-2"
+              name="fname"
+            /><br/>
+            <p class="nreq hidden text-red-600">This Field is required</p>
+          </div>
+          <div class="w-full">
+            <label for="lname">Last Name:</label><br />
+            <input
+              type="text"
+              id="lname"
+              class="w-full border rounded-lg p-2"
+              name="lname"
+            /><br />
+            <p class="lreq hidden text-red-600">This Field is required</p>
+
+          </div>
+        </div>
+
+        <div class="">
+          <label for="Myemail">Email Address</label><br />
+          <input
+            type="email"
+            id="Myemail"
+            name="Myemail"
+            class="w-full border rounded-lg p-2"
+          /><br />
+          <p class="ereq hidden text-red-600">This Field is required</p>
+        </div>
+
+        <div>
+          <h5 class="pb-3">Query Type</h5>
+          <div class="flex gap-6">
+            <label
+              class="w-full border rounded-lg p-2 px-8 flex items-center gap-4 cursor-pointer"
+              for="general"
+            >
+              <input
+                type="radio"
+                name="Qtype"
+                class="hidden peer"
+                id="general"
+                value="General Enquiry"
+              />
+              <div
+                class="border peer-checked:hidden w-5 aspect-square rounded-full"
+              ></div>
+              <svg
+                class="w-5 hidden peer-checked:block"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 20 21"
+              >
+                <path
+                  fill="#0C7D69"
+                  d="M10 .75a9.75 9.75 0 1 0 9.75 9.75A9.76 9.76 0 0 0 10 .75Zm0 18a8.25 8.25 0 1 1 8.25-8.25A8.26 8.26 0 0 1 10 18.75Zm5.25-8.25a5.25 5.25 0 1 1-10.499 0 5.25 5.25 0 0 1 10.499 0Z"
+                />
+              </svg>
+              General Enquiry
+            </label>
+
+            <label
+              class="w-full border rounded-lg p-2 px-8 flex gap-4 cursor-pointer items-center"
+              for="support"
+            >
+              <input
+                type="radio"
+                name="Qtype"
+                id="support"
+                class="hidden peer"
+                value="Support Enquiry"
+              />
+              <div
+                class="border peer-checked:hidden w-5 aspect-square rounded-full"
+              ></div>
+              <svg
+                class="w-5 hidden peer-checked:block"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 20 21"
+              >
+                <path
+                  fill="#0C7D69"
+                  d="M10 .75a9.75 9.75 0 1 0 9.75 9.75A9.76 9.76 0 0 0 10 .75Zm0 18a8.25 8.25 0 1 1 8.25-8.25A8.26 8.26 0 0 1 10 18.75Zm5.25-8.25a5.25 5.25 0 1 1-10.499 0 5.25 5.25 0 0 1 10.499 0Z"
+                />
+              </svg>
+              Support Enquiry
+            </label>
+          </div>
+        </div>
+        <p class="qreq hidden text-red-600">This Field is required</p>
+
+        <div>
+          <h4 class="block">Message</h4>
+          <textarea
+            name="message"
+            rows="3"
+            class="w-full rounded-lg border p-4"
+          ></textarea>
+        </div>
+        <p class="mreq hidden text-red-600">This Field is required</p>
+        <label for="op0" class="flex items-center gap-4">
+          <input
+            type="checkbox"
+            id="op0"
+            class="hidden peer"
+            name="op0"
+            value="MyOp0"
+          /> 
+          <div class="border peer-checked:hidden w-4 aspect-square"></div>
+          <svg
+            class="w-4 hidden peer-checked:block"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 18 18"
+          >
+            <path
+              fill="#0C7D69"
+              d="M16.5 0h-15A1.5 1.5 0 0 0 0 1.5v15A1.5 1.5 0 0 0 1.5 18h15a1.5 1.5 0 0 0 1.5-1.5v-15A1.5 1.5 0 0 0 16.5 0Zm-3.22 7.28-5.25 5.25a.748.748 0 0 1-1.06 0l-2.25-2.25a.75.75 0 1 1 1.06-1.06l1.72 1.72 4.72-4.72a.751.751 0 0 1 1.06 1.06Z"
+            />
+          </svg>
+
+          I consent to being contacted by the team
+        </label>
+
+        <button
+          class="bg-[hsl(169,82%,27%)] hover:bg-[hsl(169,52%,27%)] py-3 rounded-md text-lg text-white font-semibold"
+          type="submit"
+        >
+          Submit
+        </button>
+      </form>
+    </div>
+
+    <div id="success" class="bg-[hsl(169,52%,27%)] text-white absolute rounded-lg top-4 p-4 flex-col gap-3 hidden">
+      <div class="flex font-semibold gap-3 items-center ">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" fill="none" viewBox="0 0 20 21"><path fill="#fff" d="M14.28 7.72a.748.748 0 0 1 0 1.06l-5.25 5.25a.748.748 0 0 1-1.06 0l-2.25-2.25a.75.75 0 1 1 1.06-1.06l1.72 1.72 4.72-4.72a.75.75 0 0 1 1.06 0Zm5.47 2.78A9.75 9.75 0 1 1 10 .75a9.76 9.76 0 0 1 9.75 9.75Zm-1.5 0A8.25 8.25 0 1 0 10 18.75a8.26 8.26 0 0 0 8.25-8.25Z"/></svg>
+        Message Sent!
+      </div>
+      <p>Thanks for completing the form. We'll be in touch soon</p>
+    </div>
+    <script src="./js/script.js"></script>
+  </body>
+</html>
